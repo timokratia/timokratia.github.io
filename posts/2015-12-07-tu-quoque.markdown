@@ -1,6 +1,6 @@
 ---
-title: Tu Quoque
-author: Julius
+title: New Title
+author: New Author
 ---
 
 Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula.
