@@ -1,4 +1,4 @@
-body, nav{
+body, nav, ul{
   margin: 40px auto;
   max-width: 650px;
   line-height: 1.6;
@@ -9,6 +9,14 @@ body, nav{
 
 h1, h2, h3{
   line-height:1.2
+}
+
+a:link, a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #ff33bb;
 }
 
 /* html {

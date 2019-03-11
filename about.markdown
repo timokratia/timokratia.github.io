@@ -4,20 +4,8 @@ title: About
 
 <img style="float: right; max-width: 100%; height: auto; margin: 10px;" src="/images/desk.jpg" alt="My desk" />
 
-Preferred programming languages:
+I enjoy server-side programming in Python and Haskell, and am ready to learn new technologies for the right task.
 
-- Python
+My research interests in information science include digital preservation, and information retrieval for research data.
 
-- Haskell
-
-Academic areas of interest:
-
-- Digital preservation
-
-- Search engines for research data
-
-More about me:
-
-- Everyday tea drinker
-
-- [The Binding of Isaac](http://bindingofisaac.com/) player
+I am also a heavy tea drinker and an avid [The Binding of Isaac](http://bindingofisaac.com/) player.
