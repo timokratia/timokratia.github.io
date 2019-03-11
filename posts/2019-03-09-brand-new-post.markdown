@@ -1,5 +1,5 @@
 ---
-title: Brand New Post
+title: Brand New Post (Edited)
 author: It was me
 ---
 
