@@ -2,7 +2,7 @@
 title: About
 ---
 
-<img style="float: right; width: 200px;" src="/images/desk.jpg" alt="My desk" />
+<img style="float: right; max-width: 100%; height: auto; margin: 10px;" src="/images/desk.jpg" alt="My desk" />
 
 Preferred programming languages:
 
