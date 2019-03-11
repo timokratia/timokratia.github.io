@@ -2,6 +2,8 @@
 title: About
 ---
 
+<img style="float: right; width: 200px;" src="/images/desk.jpg" alt="My desk" />
+
 Preferred programming languages:
 
 - Python
@@ -18,6 +20,4 @@ More about me:
 
 - Everyday tea drinker
 
-- `The Binding of Isaac
-  <http://bindingofisaac.com/>`_ player.
-
+- [The Binding of Isaac](http://bindingofisaac.com/) player
