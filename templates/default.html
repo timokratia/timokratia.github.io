@@ -5,47 +5,51 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>$title$ - Zekun's Website</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/bulma.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            Zekun's Homepage
-          </a>
-          <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-               <span aria-hidden="true"></span>
-               <span aria-hidden="true"></span>
-               <span aria-hidden="true"></span>
-               </a> -->
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu is-active">
-          <div class="navbar-start">
-            <!-- <a class="navbar-item" href="/">Home</a> -->
-            <a class="navbar-item" href="/about.html">About</a>
-            <a class="navbar-item" href="/archive.html">Archive</a>
+    <section class="section container">
+      <header>
+        <nav class="navbar container" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Zekun's Homepage
+            </a>
+            <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                 <span aria-hidden="true"></span>
+                 <span aria-hidden="true"></span>
+                 <span aria-hidden="true"></span>
+                 </a> -->
           </div>
-          <div class="navbar-end">
-            <a class="navbar-item" href="/contact.html">Contact</a>
+          <div id="navbarBasicExample" class="navbar-menu is-active">
+            <div class="navbar-start">
+              <!-- <a class="navbar-item" href="/">Home</a> -->
+              <a class="navbar-item" href="/about.html">About</a>
+              <a class="navbar-item" href="/archive.html">Archive</a>
+            </div>
+            <div class="navbar-end">
+              <a class="navbar-item" href="/contact.html">Contact</a>
+            </div>
           </div>
+        </nav>
+      </header>
+
+      <main role="main" class="container content">
+        <h3 class="title is-3">$title$</h3>
+        $body$
+      </main>
+
+      <footer class="footer container">
+        <div class="content has-text-right">
+          <p>
+            This site is <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY</a> licensed;
+            generated using <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+            and <a href="https://bulma.io/">Bulma</a>.
+          </p>
         </div>
-      </nav>
-    </header>
-
-    <main role="main">
-      <h1>$title$</h1>
-      $body$
-    </main>
-
-    <footer class="footer">
-      <div class="content has-text-right">
-        <p>
-          This site is <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY</a> licensed;
-          generated using <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-          and <a href="https://bulma.io/">Bulma</a>.
-        </p>
-      </div>
-    </footer>
+      </footer>
+    </section>
   </body>
 </html>
