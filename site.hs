@@ -7,9 +7,9 @@ import           Hakyll
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
+    -- match "images/*" $ do
+    --     route   idRoute
+    --     compile copyFileCompiler
 
     match "css/*" $ do
         route   idRoute
@@ -59,7 +59,11 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
-
+    match (    "CNAME"
+          .||. "favicon.ico"
+          .||. "images/*"   ) $ do
+        route   idRoute
+        compile copyFileCompiler
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
