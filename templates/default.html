@@ -9,33 +9,42 @@
     <link rel="stylesheet" href="/css/bulma.css" />
   </head>
   <body>
-    <section class="section container">
+    <div class="container">
       <header>
-        <nav class="navbar container" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              Zekun's Homepage
-            </a>
-            <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                 <span aria-hidden="true"></span>
-                 <span aria-hidden="true"></span>
-                 <span aria-hidden="true"></span>
-                 </a> -->
-          </div>
-          <div id="navbarBasicExample" class="navbar-menu is-active">
-            <div class="navbar-start">
-              <!-- <a class="navbar-item" href="/">Home</a> -->
-              <a class="navbar-item" href="/about.html">About</a>
-              <a class="navbar-item" href="/archive.html">Archive</a>
+        <section class="section">
+          <nav class="navbar container" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                Zekun's Homepage
+              </a>
+              <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                   <span aria-hidden="true"></span>
+                   <span aria-hidden="true"></span>
+                   <span aria-hidden="true"></span>
+                   </a> -->
             </div>
-            <div class="navbar-end">
-              <a class="navbar-item" href="/contact.html">Contact</a>
+            <div id="navbarBasicExample" class="navbar-menu is-active">
+              <div class="navbar-start">
+                <!-- <a class="navbar-item" href="/">Home</a> -->
+                <a class="navbar-item" href="/about.html">About</a>
+                <a class="navbar-item" href="/archive.html">Archive</a>
+                <a class="navbar-item" href="/contact.html">Contact</a>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary">
+                      <strong>Sign up</strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </section>
       </header>
 
-      <main role="main" class="container content">
+      <main class="container content">
         <h3 class="title is-3">$title$</h3>
         $body$
       </main>
@@ -49,6 +58,6 @@
           </p>
         </div>
       </footer>
-    </section>
+    </div>
   </body>
 </html>

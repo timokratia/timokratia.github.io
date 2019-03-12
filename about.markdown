@@ -1,8 +1,9 @@
 ---
 title: About
 ---
-
-<img style="float: right; max-width: 100%; height: auto; margin: 10px;" src="/images/desk.jpg" alt="My desk" />
+<figure>
+  <img style="float: right; max-width: 100%; height: auto; margin: 10px;" src="/images/desk.jpg" alt="My desk" />
+</figure>
 
 I enjoy server-side programming in Python and Haskell, and am ready to learn new technologies for the right task.
 
