@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://zekun.dev/sitemap.xml
