@@ -21,3 +21,5 @@ build_search_index = true
 # Put all your custom variables here
 github = "https://github.com/timokratia"
 license = "CC BY"
+global_banner_quote = "The unlived life is not worth examining."
+global_banner_footer = "...and other thoughts of mine."
