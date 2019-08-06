@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Molly theme basics
+    </title>
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;zekun.dev&#x2F;molly.css" />
+  </head>
+  <body>
+    <!-- ==== START PAGE WRAPPER ==== -->
+    <div class="wrapper">
+
+      <!-- ==== START MASTHEAD ==== -->
+      <header role="banner" class="masthead">
+        <!-- Quote -->
+        <div class="epigraph">
+          <blockquote>
+            <p>
+              
+              To Molly the dog...
+              
+            </p>
+            <footer>
+              
+              Thank you for the company.
+              
+            </footer>
+          </blockquote>
+        </div>
+
+        <nav role="navigation" class="top-nav">
+          <ul>
+            <li><a href="https:&#x2F;&#x2F;zekun.dev/about/">about</a></li>
+            <!-- Redirect to the latest post -->
+            
+            
+            <li><a href="https:&#x2F;&#x2F;zekun.dev/blog&#x2F;molly-theme-basics&#x2F;">blog</a></li>
+            
+            <li><a href="https:&#x2F;&#x2F;github.com&#x2F;timokratia">code</a></li>
+          </ul>
+        </nav>
+
+      </header>
+      <!-- end masthead -->
+
+      <!-- ==== START PRIMARY CONTAINER ==== -->
+      <div class="primary-container">
+
+        <!-- ==== START MAIN ==== -->
+        <main class="main" role="main">
+          
+<article>
+  <h1>Molly theme basics</h1>
+  <p class="subtitle">2019-08-05, by Zekun</p>
+  <section>
+    <h2>Introduction</h2>
+<p>Molly is a <a href="https://www.getzola.org/">Zola</a> blog theme based on <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.
+The theme is a work in progress in its early stage of development.
+Zola is a static site generator written in <em>Rust</em>;
+checkout <a href="https://www.getzola.org/documentation/getting-started/installation/">the documentation</a> to get started.</p>
+</section>
+<section>
+<h2>Basics</h2>
+<h3 id="installation">Installation</h3>
+<p>To use Molly theme with your Zola site,
+in your <code>themes</code> directory clone Molly theme's <a href="https://github.com/timokratia/timokratia.github.io.git">repo</a><label class="margin-toggle sidenote-number" for="sn-clone-repo"></label><input id="sn-clone-repo" class="margin-toggle" type="checkbox" /><span class="sidenote">git clone https://github.com/timokratia/molly.git</span>
+and in your <code>config.toml</code> file add <code>theme = &quot;molly&quot;</code>.</p>
+<h3 id="configuration">Configuration</h3>
+<p>In your <code>config.toml</code> file's <code>[extra]</code> field,
+add your GitHub profile (e.g. mine is <code>github = &quot;https://github.com/timokratia&quot;</code>) for the <code>code</code> menu item to redirect to;
+also add license information to the <code>license</code> field to display in the page footer;
+as well as your global banner quote and footer (see next section).</p>
+</section>
+<section>
+<h2>In your Markdown file</h2>
+<p>At the time of writing Molly theme has implemented <code>sections</code>, <code>sidenotes</code>, and <code>margin notes</code> from <em>Tufte CSS</em>.
+They are achieved by using <a href="https://tera.netlify.com/docs/templates/#macros">macros</a> together with <a href="https://www.getzola.org/documentation/content/shortcodes/">shortcodes</a>.
+Additionally, Molly theme uses epigraphs to display a pair of banner quote and footer on top of each page.</p>
+<h3 id="sections">Sections</h3>
+<p><em>Tufte CSS</em> recommends using &quot;section tags around each logical grouping of text and headings&quot;.
+In Molly theme, the content of your Markdown file is wrapped in a pair of <code>section</code> tags by default.
+To add your <strong>first</strong> additional section with heading, use the following shortcode</p>
+<p><code>{{ section_begin(header=&quot;Your section header&quot;) }}</code></p>
+<p>and <strong>following</strong> sections with</p>
+<p><code>{{ section_con(header=&quot;Another section header&quot;) }}</code>.</p>
+<p>Section headers are wrapped in <code>&lt;h2&gt;</code> tags.
+You can add subsection headers using Markdown's <code>###</code>.</p>
+<h3 id="sidenotes-and-margin-notes">Sidenotes and margin notes</h3>
+<p>Sidenotes and margin notes are easier to find than footnotes.
+To add a numbered sidenote like this<label class="margin-toggle sidenote-number" for="sn-sample-sidenote"></label><input id="sn-sample-sidenote" class="margin-toggle" type="checkbox" /><span class="sidenote">The body of the sample sidenote.</span>,
+use the following shortcode</p>
+<p><code>{% sidenote(unique_id=&quot;your-unique-id-for-sidenote&quot;) %}Sidenote body{% end %}</code>.</p>
+<p>Similarly, an unnumbered margin note<label class="margin-toggle" for="mn-sample-marginnote">⊕</label><input id="mn-sample-marginnote" class="margin-toggle" type="checkbox" /><span class="marginnote">Margin notes are unnumbered.</span> can be created by</p>
+<p><code>{% marginnote(unique_id=&quot;your-unique-id-for-marginnote&quot;) %}Margin note body{% end %}</code>.</p>
+<p>Please note that <em>Tufte CSS</em> requires you to manually assign a reference id to each side or margin note.
+It's used to toggle the note on mobile.</p>
+<p>Also there's a sneaky difference between section and sidenote/margin note's shortcode.
+The shortcode to use sections starts and ends with <code>{{</code> and <code>}}</code>,
+while for sidenotes and margin notes it's <code>{%</code> and <code>%}</code>.
+The reason is that Zola has different syntaxes for shortcodes with and without a body.
+The <code>section</code> shortcode doesn't have a body because it only inserts <code>&lt;section&gt;</code> tags and a <code>&lt;h2&gt;</code> header.
+On the other hand, sidenotes and margin notes require a note body in addition to a unique id.</p>
+<h3 id="banner-quote-and-footer">Banner quote and footer</h3>
+<p>A pair of banner quote and footer is displayed on top of each page to serve as a brief introduction.
+The global quote and footer you set in <code>config.toml</code> will be used as the default for every page.
+However, you can override them in individual page's front matter in the fields of
+<code>banner_quote</code> and <code>banner_footer</code> under <code>[extra]</code>.</p>
+</section>
+<section>
+<h2>Design considerations</h2>
+<p>Inspired by <a href="http://ayekat.ch/">ayekat's website</a>,
+Molly theme redirects the homepage of your site to the <code>about</code> page,
+and the <code>blog</code> page to your latest post<label class="margin-toggle sidenote-number" for="sn-redirect-blog"></label><input id="sn-redirect-blog" class="margin-toggle" type="checkbox" /><span class="sidenote">However, this is achieved partially.
+If you manually enter base_url/blog/ in the browser, you will still be redirected to the about page.</span>.
+I consider it straightforward, and it also reduces some coding.</p>
+<p>The color palette used in Molly theme is generated from the base color of <em>Tufte CSS</em>, <code>#fffff8</code>, in <a href="https://mycolor.space/">ColorSpace</a>.
+It uses colors from the <em>Matching Gradient</em> palette:
+<code>#d9ded2</code>, <code>#89a191</code>, and <code>#36675f</code>.</p>
+</section>
+<section>
+<h2>Epilogue</h2>
+<p>Contribution, questions, and suggestions are welcome!
+Contact me in Molly theme's <a href="https://github.com/timokratia/molly.git">repo</a> or <a href="https://twitter.com/intent/tweet?screen_name=Timokratia&amp;ref_src=twsrc%5Etfw">tweet me</a> directly.</p>
+<p>If you're looking for other implementations of <em>Tufte CSS</em>,
+checkout <a href="https://github.com/edwardtufte/tufte-css/issues/26">this awesome thread</a>
+as well as both <a href="https://gertjanvandenburg.com/blog/how_i_made/">Gertjan van den Burg</a> and <a href="http://ayekat.ch/blog/tufte-css">ayekat's</a>
+blog posts.</p>
+
+  </section>
+</article>
+
+        </main>
+        <!-- end main -->
+
+        <!-- ==== START SIDEBAR ==== -->
+        
+<aside id="sidebar">
+  <hr />
+  <h3 class="post-list-title">Other posts</h3>
+  
+  <ul>
+    
+    
+    <li>Molly theme basics <span class="post-date">2019-08-05</span></li>
+    
+    
+  </ul>
+</aside>
+
+        <!-- end sidebar -->
+
+      </div>
+      <!-- end primary container -->
+
+      <!-- ==== START PAGE FOOTER ==== -->
+      <footer class="footer" role="contentinfo">
+        <p>Generated with <a href="https://www.getzola.org/">Zola</a></p>
+        <p>CC BY licensed</p>
+      </footer>
+      <!-- end footer -->
+
+    </div>
+    <!-- end page wrapper -->
+  </body>
+</html>
