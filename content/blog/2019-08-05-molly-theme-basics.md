@@ -43,11 +43,15 @@ _Tufte CSS_ recommends using "section tags around each logical grouping of text 
 In Molly theme, the content of your Markdown file is wrapped in a pair of `section` tags by default.
 To add your __first__ additional section with heading, use the following shortcode
 
-`{{/* section_begin(header="Your section header") */}}`
+```txt
+{{/* section_begin(header="Your section header") */}}
+```
 
 and __following__ sections with
 
-`{{/* section_con(header="Another section header") */}}`.
+```txt
+{{/* section_con(header="Another section header") */}}
+```
 
 Section headers are wrapped in `<h2>` tags.
 You can add subsection headers using Markdown's `###`.
@@ -61,13 +65,17 @@ The body of the sample sidenote.
 {% end %},
 use the following shortcode
 
-`{%/* sidenote(unique_id="your-unique-id-for-sidenote") */%}Sidenote body{%/* end */%}`.
+```txt
+{%/* sidenote(unique_id="your-unique-id-for-sidenote") */%}Sidenote body{%/* end */%}
+```
 
 Similarly, an unnumbered margin note{% marginnote(unique_id="sample-marginnote") %}
 Margin notes are unnumbered.
 {% end %} can be created by
 
-`{%/* marginnote(unique_id="your-unique-id-for-marginnote") */%}Margin note body{%/* end */%}`.
+```txt
+{%/* marginnote(unique_id="your-unique-id-for-marginnote") */%}Margin note body{%/* end */%}
+```
 
 Please note that _Tufte CSS_ requires you to manually assign a reference id to each side or margin note.
 It's used to toggle the note on mobile.
