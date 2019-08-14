@@ -8,10 +8,16 @@ banner_quote = "The unlived life is not worth examining."
 banner_footer = "...and other thoughts of mine."
 +++
 
+## Welcome to Zekun's website!
+
+You're currently on the [about](@/about/index.md) page.
+
+I blog about my experience of open source tools for research and everyday use.
+Feel free to look around!
+
 {{ section_begin(header="me") }}
 
-Welcome!
-I'm Zekun, a MSc student studying Digital Information Management at University College Dublin.
+My name is Zekun, I'm a MSc student studying Digital Information Management at University College Dublin.
 
 I'm interested in technologies for libraries, archives, and museums.
 Programming languages I use include Python, Haskell, Ruby, and Rust.
@@ -31,7 +37,7 @@ I'm a heavy tea drinker; I drink at least four cups of tea each day.
 [Earl Grey](https://en.wikipedia.org/wiki/Earl_Grey_tea) and [Sencha](https://en.wikipedia.org/wiki/Sencha) are my favorites.
 
 I play videos games The Binding of Isaac: Rebirth
-([100% achivements completed, top 3%](https://steamcommunity.com/stats/250900/achievements/)),
+([100% achievements completed, top 3%](https://steamcommunity.com/stats/250900/achievements/)),
 and Dota Underlords ([7050 rank points](https://steamcommunity.com/games/underlords/announcements/detail/2707145128901426684/)).
 
 {{ section_con(header="this site") }}
