@@ -82,18 +82,26 @@ Additionally, Molly theme uses epigraphs to display a pair of banner quote and f
 <p><em>Tufte CSS</em> recommends using &quot;section tags around each logical grouping of text and headings&quot;.
 In Molly theme, the content of your Markdown file is wrapped in a pair of <code>section</code> tags by default.
 To add your <strong>first</strong> additional section with heading, use the following shortcode</p>
-<p><code>{{ section_begin(header=&quot;Your section header&quot;) }}</code></p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">{{ section_begin(header=&quot;Your section header&quot;) }}
+</span></pre>
 <p>and <strong>following</strong> sections with</p>
-<p><code>{{ section_con(header=&quot;Another section header&quot;) }}</code>.</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">{{ section_con(header=&quot;Another section header&quot;) }}
+</span></pre>
 <p>Section headers are wrapped in <code>&lt;h2&gt;</code> tags.
 You can add subsection headers using Markdown's <code>###</code>.</p>
 <h3 id="sidenotes-and-margin-notes">Sidenotes and margin notes</h3>
 <p>Sidenotes and margin notes are easier to find than footnotes.
 To add a numbered sidenote like this<label class="margin-toggle sidenote-number" for="sn-sample-sidenote"></label><input id="sn-sample-sidenote" class="margin-toggle" type="checkbox" /><span class="sidenote">The body of the sample sidenote.</span>,
 use the following shortcode</p>
-<p><code>{% sidenote(unique_id=&quot;your-unique-id-for-sidenote&quot;) %}Sidenote body{% end %}</code>.</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">{% sidenote(unique_id=&quot;your-unique-id-for-sidenote&quot;) %}Sidenote body{% end %}
+</span></pre>
 <p>Similarly, an unnumbered margin note<label class="margin-toggle" for="mn-sample-marginnote">⊕</label><input id="mn-sample-marginnote" class="margin-toggle" type="checkbox" /><span class="marginnote">Margin notes are unnumbered.</span> can be created by</p>
-<p><code>{% marginnote(unique_id=&quot;your-unique-id-for-marginnote&quot;) %}Margin note body{% end %}</code>.</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">{% marginnote(unique_id=&quot;your-unique-id-for-marginnote&quot;) %}Margin note body{% end %}
+</span></pre>
 <p>Please note that <em>Tufte CSS</em> requires you to manually assign a reference id to each side or margin note.
 It's used to toggle the note on mobile.</p>
 <p>Also there's a sneaky difference between section and sidenote/margin note's shortcode.
