@@ -172,8 +172,9 @@ hence the two lines of configuration.
 
 Please see these two posts on
 [Stack Exchange](https://tex.stackexchange.com/questions/27450/how-to-make-latexmk-work-with-xelatex-and-biber)
-and [Stack Overflow](https://stackoverflow.com/questions/3124273/compile-xelatex-tex-file-with-latexmk) for further discussion;
-and as always, [the manual](https://ftp.heanet.ie/pub/ctan.org/tex/support/latexmk/latexmk.pdf) is a good reference.
+and [Stack Overflow](https://stackoverflow.com/questions/3124273/compile-xelatex-tex-file-with-latexmk) for further discussion,
+as well as another well written [`latexmk` tutorial](https://mg.readthedocs.io/latexmk.html) by [Matthias Geier](https://github.com/mgeier);
+and as always, [the manual](https://ftp.heanet.ie/pub/ctan.org/tex/support/latexmk/latexmk.pdf) is a good reference for detailed documentation.
 
 {{ section_con(header="Epilogue") }}
 
@@ -181,4 +182,3 @@ Hopefully this post is a starting point for me to write about my experience with
 as stated on the [_about_](@/about/index.md) page.
 I believe it's easier to find help when running into problem when using open source software.
 Let's go blogging and make this belief stay alive!
-
