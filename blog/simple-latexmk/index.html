@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Compile LaTeX documents with latexmk
+    </title>
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;zekun.dev&#x2F;molly.css" />
+  </head>
+  <body>
+    <!-- ==== START PAGE WRAPPER ==== -->
+    <div class="wrapper">
+
+      <!-- ==== START MASTHEAD ==== -->
+      <header role="banner" class="masthead">
+        <!-- Quote -->
+        <div class="epigraph">
+          <blockquote>
+            <p>
+              
+              The unlived life is not worth examining.
+              
+            </p>
+            <footer>
+              
+              ...and other thoughts of mine.
+              
+            </footer>
+          </blockquote>
+        </div>
+
+        <nav role="navigation" class="top-nav">
+          <ul>
+            <li><a href="https:&#x2F;&#x2F;zekun.dev/about/">about</a></li>
+            <!-- Redirect to the latest post -->
+            
+            
+            <li><a href="https:&#x2F;&#x2F;zekun.dev/blog&#x2F;simple-latexmk&#x2F;">blog</a></li>
+            
+            <li><a href="https:&#x2F;&#x2F;github.com&#x2F;timokratia">code</a></li>
+          </ul>
+        </nav>
+
+      </header>
+      <!-- end masthead -->
+
+      <!-- ==== START PRIMARY CONTAINER ==== -->
+      <div class="primary-container">
+
+        <!-- ==== START MAIN ==== -->
+        <main class="main" role="main">
+          
+<article>
+  <h1>Compile LaTeX documents with latexmk</h1>
+  <p class="subtitle">2019-09-17, by Zekun</p>
+  <section>
+    <h2>Introduction</h2>
+<p>In<label class="margin-toggle" for="mn-beginner">⊕</label><input id="mn-beginner" class="margin-toggle" type="checkbox" /><span class="marginnote">Please note that this is not a beginner's guide to <em>LaTeX</em>.
+If you're completely new and would like to give <em>LaTeX</em> a try,
+you can use online editors on <a href="https://www.tutorialspoint.com/online_latex_editor.php">Tutorials Point</a>
+or <a href="https://www.overleaf.com/">Overleaf</a> (registration required).
+If you already have <em>LaTeX</em> installed on your machine (type <em>tex --version</em> in the command line to see if you do),
+this post provides minimal working example for you to produce a PDF file from a <em>LaTeX</em> document;
+no previous knowledge required.</span>
+this post I'll talk about using <a href="http://personal.psu.edu/%7Ejcc8/software/latexmk/"><code>latexmk</code></a> to make compiling <em>LaTeX</em> documents easier.
+<code>latexmk</code> automates the workflow of running <em>LaTeX</em> and other auxiliary commands the correct number of times,
+which resolves cross references, starts a document viewer, and keeps updating when changes are made to the source files.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Experience of using the command line</li>
+<li>An installed <em>TeX</em> distribution</li>
+<li><code>latexmk</code>, which should come with your <em>TeX</em> distribution</li>
+</ul>
+</section>
+<section>
+<h2>A minimal working example</h2>
+<p>Create a <code>temp.tex</code> file with the following content in your current working directory:</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#859900;">\documentclass</span><span style="color:#657b83;">{</span><span style="color:#859900;">article</span><span style="color:#657b83;">}
+
+</span><span style="color:#859900;">\begin</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">document</span><span style="color:#657b83;">}
+
+A sample document.
+
+</span><span style="color:#859900;">\end</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">document</span><span style="color:#657b83;">}
+</span></pre>
+<p>You can use the command <code>pdflatex temp.tex</code> to produce a PDF file.
+To use <code>latexmk</code> instead, type the following command:
+<code>latexmk -pdf</code><label class="margin-toggle sidenote-number" for="sn-omit-filename"></label><input id="sn-omit-filename" class="margin-toggle" type="checkbox" /><span class="sidenote">The <strong>-pdf</strong> option tells <em>latexmk</em> to generate PDF by pdflatex.
+Also, you can leave out the file name when there's only one .tex file in the directory.</span>.
+You can clean up the generated auxiliary files by running <code>latexmk -c</code>.</p>
+<p>The power of <code>latexmk</code> is yet to be revealed,
+let's move on to more practical examples.</p>
+</section>
+<section>
+<h2>Use latexmk with configurations</h2>
+<p><code>latexmk</code> becomes really handy with simple configurations.
+To get started,
+create an empty file named <code>.latexmkrc</code><label class="margin-toggle sidenote-number" for="sn-run-commands"></label><input id="sn-run-commands" class="margin-toggle" type="checkbox" /><span class="sidenote">The term <em>rc</em> stands for <strong><a href="https://en.wikipedia.org/wiki/Run_commands">run commands</a></strong>.</span>
+in the home directory with your text editor.
+This could also be done using the command line:
+type <code>cd</code> to change to your home directory,
+then create an empty configuration file by typing <code>touch .latexmkrc</code>.</p>
+<h3 id="set-document-viewer-for-continuous-preview">Set document viewer for continuous preview</h3>
+<p>Set the document viewer of your choice<label class="margin-toggle sidenote-number" for="sn-macOS-preview"></label><input id="sn-macOS-preview" class="margin-toggle" type="checkbox" /><span class="sidenote">If you are on macOS,
+no configuration is needed at the moment,
+as Preview is the default viewer.</span>, such as Evince or Okular, in <code>.latexmkrc</code>:</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">$pdf_previewer = &#39;okular&#39;;
+</span></pre>
+<p>Back in the directory in which the <code>temp.tex</code> resides,
+start <code>latexmk</code>'s continuous preview mode using <code>latexmk -pdf --pvc</code>.
+You will see that <code>latexmk</code> opens the PDF document compiled from your TeX source file with the viewer of your choice,
+and keeps it updated with every saved edit you make.</p>
+<h3 id="simplified-workflow-of-working-with-references">Simplified workflow of working with references</h3>
+<p>You usually need to manually run multiple commands in the command line
+when compiling documents with references.
+This can be taken care of by <code>latexmk</code>'s continuous preview mode.
+Let's modify the <code>temp.tex</code> to include a reference and see it in action:</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#859900;">\documentclass</span><span style="color:#657b83;">{</span><span style="color:#859900;">article</span><span style="color:#657b83;">}
+
+</span><span style="color:#859900;">\usepackage</span><span style="color:#657b83;">[</span><span style="color:#268bd2;">backend</span><span style="color:#657b83;">=biber]{</span><span style="color:#859900;">biblatex</span><span style="color:#657b83;">}
+
+</span><span style="color:#859900;">\usepackage</span><span style="color:#657b83;">{</span><span style="color:#859900;">filecontents</span><span style="color:#657b83;">}
+
+</span><span style="color:#859900;">\begin</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">filecontents</span><span style="color:#657b83;">*}{temp.bib}
+  @book{Knu86,
+    author = {Knuth, Donald E.},
+    year = {1986},
+    title = {The </span><span style="color:#859900;">\TeX</span><span style="color:#657b83;"> book},
+  }
+</span><span style="color:#859900;">\end</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">filecontents</span><span style="color:#657b83;">*}
+
+</span><span style="color:#859900;">\addbibresource</span><span style="color:#657b83;">{temp.bib}
+
+</span><span style="color:#859900;">\begin</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">document</span><span style="color:#657b83;">}
+
+A sample document.
+Please see The </span><span style="color:#859900;">\TeX</span><span style="color:#dc322f;">\ </span><span style="color:#657b83;">book</span><span style="color:#cb4b16;">~</span><span style="color:#859900;">\cite</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">Knu86</span><span style="color:#657b83;">} for more information.
+
+</span><span style="color:#859900;">\printbibliography</span><span style="color:#657b83;">{}
+
+</span><span style="color:#859900;">\end</span><span style="color:#657b83;">{</span><span style="color:#cb4b16;">document</span><span style="color:#657b83;">}
+</span></pre>
+<p>To manually compile this expanded example<label class="margin-toggle sidenote-number" for="sn-tex-bib"></label><input id="sn-tex-bib" class="margin-toggle" type="checkbox" /><span class="sidenote">It uses the package <em>biblatex</em> with <em>biber</em> backend to process and format bibliographic information.
+It also uses <em>filecontents</em> to create an entry of bibliography, The TeX Book,
+that can be used together with the .tex source file.</span>,
+you will need to </p>
+<ol>
+<li>run <code>pdflatex temp.tex</code> first,
+getting the warning that &quot;there were undefined references&quot;;</li>
+<li>then run <code>biber temp</code> to resolve the reference;</li>
+<li>and run <code>pdflatex temp.tex</code> again to produce the final document that includes references.</li>
+</ol>
+<p>This process gets repetitive when you constantly edit the source file and need to see the compiled result.
+It's where <code>latexmk</code> comes to improve the quality of life of using <em>LaTeX</em>:</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">latexmk -pdf --pvc
+</span></pre>
+<p>this single line of command resolves the references and keeps the PDF document updated to your saved edits,
+simplifying the above-mentioned tiring workflow.
+To stop <code>latexmk</code>'s continuous preview mode,
+press <code>Control + c</code> in the command line.</p>
+</section>
+<section>
+<h2>Compile XeTeX files with latexmk</h2>
+<p><em>XeTeX</em> (pronounced <em>/ZEE-tekh/</em>) is a UTF-8 engine<label class="margin-toggle sidenote-number" for="sn-tex-engines"></label><input id="sn-tex-engines" class="margin-toggle" type="checkbox" /><span class="sidenote">An alternative is <em>LuaTeX</em>, see <a href="https://tex.stackexchange.com/questions/36/differences-between-luatex-context-and-xetex/72#72">here</a>
+for an explanation on their differences.</span> for processing <em>TeX</em> documents.
+It has better support for fonts and character sets out-of-the-box than <em>pdfTeX</em>.
+To use <code>latexmk</code> with <em>XeTeX</em>, you will need some more configuration.
+Let's update the <code>.latexmkrc</code> with the following content:</p>
+<pre style="background-color:#fdf6e3;">
+<span style="color:#657b83;">$pdf_previewer = &#39;okular&#39;;
+
+$pdf_mode = 5;
+
+$pdflatex = &#39;xelatex %O %S&#39;;
+
+$dvi_mode = 0;
+
+$postscript_mode = 0;
+
+$allow_switch = 1;
+</span></pre>
+<p>This configuration works as follows:</p>
+<ul>
+<li>The first line specifies the document viewer; replace <em>okular</em> with the one of your choice.</li>
+<li>The second and third lines<label class="margin-toggle sidenote-number" for="sn-latexmk-options"></label><input id="sn-latexmk-options" class="margin-toggle" type="checkbox" /><span class="sidenote">Because <em>latexmk</em> by default uses <em>xelatex</em> to generate an <em>.xdv</em> rather than <em>.pdf</em> file
+(<a href="https://ftp.heanet.ie/pub/ctan.org/tex/support/latexmk/latexmk.pdf"><em>latexmk Manual</em></a>, p 42),
+to compile PDF files from <em>XeTeX</em> documents you need to explicitly tell <em>latexmk</em> to do so;
+hence the two lines of configuration.</span> tell <em>latexmk</em> to generate the PDF file using <em>xelatex</em>.</li>
+<li>The fourth and fifth lines prevents <em>latexmk</em> from generating DVI and PostScript files.</li>
+<li>The last line allows <code>latexmk</code> to make adjustments when the output extension is not expected.</li>
+</ul>
+<p>Please see these two posts on
+<a href="https://tex.stackexchange.com/questions/27450/how-to-make-latexmk-work-with-xelatex-and-biber">Stack Exchange</a>
+and <a href="https://stackoverflow.com/questions/3124273/compile-xelatex-tex-file-with-latexmk">Stack Overflow</a> for further discussion;
+and as always, <a href="https://ftp.heanet.ie/pub/ctan.org/tex/support/latexmk/latexmk.pdf">the manual</a> is a good reference.</p>
+</section>
+<section>
+<h2>Epilogue</h2>
+<p>Hopefully this post is a starting point for me to write about my experience with open source tools for research and everyday use,
+as stated on the <a href="https://zekun.dev/about/"><em>about</em></a> page.
+I believe it's easier to find help when running into problem when using open source software.
+Let's go blogging and make this belief stay alive!</p>
+
+  </section>
+</article>
+
+        </main>
+        <!-- end main -->
+
+        <!-- ==== START SIDEBAR ==== -->
+        
+<aside id="sidebar">
+  <hr />
+  <h3 class="post-list-title">Other posts</h3>
+  
+  <ul>
+    
+    
+    <li>Compile LaTeX documents with latexmk <span class="post-date">2019-09-17</span></li>
+    
+    
+    
+    <li><a href="https:&#x2F;&#x2F;zekun.dev&#x2F;blog&#x2F;molly-theme-basics&#x2F;"><span class="other-post">Molly theme basics</span></a> <span class="post-date"> 2019-08-05</span></li>
+    
+    
+  </ul>
+</aside>
+
+        <!-- end sidebar -->
+
+      </div>
+      <!-- end primary container -->
+
+      <!-- ==== START PAGE FOOTER ==== -->
+      <footer class="footer" role="contentinfo">
+        <p>Generated with <a href="https://www.getzola.org/">Zola</a></p>
+        <p>CC BY licensed</p>
+      </footer>
+      <!-- end footer -->
+
+    </div>
+    <!-- end page wrapper -->
+  </body>
+</html>
