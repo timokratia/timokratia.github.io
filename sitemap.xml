@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https%3A//zekun.dev/</loc>
+            <loc>https://zekun.dev/</loc>
             
         </url>
     
         <url>
-            <loc>https%3A//zekun.dev/about/</loc>
+            <loc>https://zekun.dev/about/</loc>
             
         </url>
     
         <url>
-            <loc>https%3A//zekun.dev/blog/</loc>
+            <loc>https://zekun.dev/blog/</loc>
             
         </url>
     
         <url>
-            <loc>https%3A//zekun.dev/blog/molly-theme-basics/</loc>
+            <loc>https://zekun.dev/blog/molly-theme-basics/</loc>
             
                 <lastmod>2019-08-05</lastmod>
             
         </url>
     
         <url>
-            <loc>https%3A//zekun.dev/blog/simple-latexmk/</loc>
+            <loc>https://zekun.dev/blog/simple-latexmk/</loc>
             
                 <lastmod>2019-09-17</lastmod>
             
