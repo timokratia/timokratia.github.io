@@ -34,7 +34,7 @@ as well as your global banner quote and footer (see next section).
 {{ section_con(header="In your Markdown file") }}
 
 At the time of writing Molly theme has implemented `sections`, `sidenotes`, and `margin notes` from _Tufte CSS_.
-They are achieved by using [macros](https://tera.netlify.com/docs/templates/#macros) together with [shortcodes](https://www.getzola.org/documentation/content/shortcodes/).
+They are achieved by using [macros](https://tera.netlify.com/docs/#macros) together with [shortcodes](https://www.getzola.org/documentation/content/shortcodes/).
 Additionally, Molly theme uses epigraphs to display a pair of banner quote and footer on top of each page.
 
 ### Sections
